@@ -1,1 +1,7 @@
 #hello Design Pattern
+A small demo for design patter using C++
+
+1.Adapter
+2.Bridge
+3.Composite
+4.Singleton
