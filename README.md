@@ -1,6 +1,6 @@
 #hello Design Pattern
-A small demo for design patter using C++  
-设计模式与其说是方法，更是一种思想，充斥着解耦合，所以大多数模式都能看到class的组合，而继承和派生的作用也体现得淋漓尽致，一个基类指针简直是万能。
+- A small demo for design patter using C++  
+- 设计模式与其说是方法，更是一种思想，充斥着解耦合，所以大多数模式都能看到class的组合，而继承和派生的作用也体现得淋漓尽致，一个基类指针简直是万能。
 
 #1. Adapter  
 - Adaptor模式，用于class A需要但无法直接使用class B,可以定义class C:public A, private B，此时C可以实现A和B的通信。  
@@ -107,3 +107,28 @@ private:
 #5. Factory  
 - Factory模式，用于生产同一父类的子类对象，十分便于降低对象创建时的复杂度。  
 - 在开发中我曾遇到，有三种不同类型的分组对象（比如：1分组，2分组，3分组），这些对象都执行各自重载的方法（比如分组迁移），此时相对于switch-case或者if-else，使用Factory模式在创建分组对象时，创建过程十分清晰。
+
+#6. Decorator
+- Decorator模式在我看来十分可爱，把要装饰的对象包在自己里面，可以包多层，有个疑惑就是如果我使用的是第三方类库怎么办？是不是重新定义一个class继承于它呢。
+- 使用方法也很简单，定义时，在实现自己方法之前调用其他class的方法，等于给该方法套了一层(也就是装饰的部分)。
+
+```
+class ConcreteComponent:public Component
+{
+public:
+	void Operation();
+};
+
+class ConcreteDecoratorA:public Decorator
+{
+public:
+	void Operator()
+	{
+		this->_mPComp->Operation();
+		this->AddOperation();
+	}
+	void AddOperation();
+};
+```
+
+- 实际开发中也未用到该模式，反正大家都是一个基类指针，想变成什么样的子类都可以，太TM灵活了！
