@@ -132,3 +132,23 @@ public:
 ```
 
 - 实际开发中也未用到该模式，反正大家都是一个基类指针，想变成什么样的子类都可以，太TM灵活了！
+
+#7. Facade
+- 觉得Facade模式是最没有用的一个，无非就是子系统类持有多个其他类的对象指针，然后在接口中通过指针调用这些类的方法，最简单的解耦合操作。
+
+```
+class Compiler
+{
+public:
+	Compiler();
+	~Compiler();
+
+	void Operation();
+private:
+	Paser* pPaser;
+	GrammerTree* pGrammerTree;
+	Token* pToken;
+};
+```
+
+- 话说Facade模式开发中用到的最多，都是很自然的方式。
