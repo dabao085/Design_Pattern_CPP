@@ -13,6 +13,7 @@ class Brand
 {
 public:
     virtual std::string GetBrand() const = 0;
+    virtual ~Brand(){}
 };
 
 //手机CPU类
@@ -20,6 +21,7 @@ class CPU
 {
 public:
     virtual std::string GetCPU() const = 0;
+    virtual ~CPU(){}
 };
 
 //手机操作系统类
@@ -27,6 +29,7 @@ class OS
 {
 public:
     virtual std::string GetOS() const = 0;
+    virtual ~OS(){}
 };
 
 ////////////////////////////////////////////////////

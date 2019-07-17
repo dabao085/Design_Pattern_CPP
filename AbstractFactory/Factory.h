@@ -16,6 +16,7 @@ public:
     {
         return new Cellphone;
     }
+    virtual ~CellphoneFactory(){}
     virtual Brand* MakeBrand() const = 0;
     virtual OS* MakeOS() const = 0;
     virtual CPU* MakeCPU() const = 0;
