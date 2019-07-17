@@ -1,24 +1,32 @@
+/*
+ * Author: chengx
+ * Date: 2019-7-15 14:53:23
+ * Description:
+ */
+
 #include "Product.h"
 #include "Factory.h"
-#include <iostream>
 using namespace std;
 
-int main()
+int main(int argc, char *argv[])
 {
-	Factory *f1 = new ConcreteFactoryA();
-	Factory *f2 = new ConcreteFactoryB();
+    //手机制造商
+    CellphoneMake maker;
 
-	Product *fp1 = f1->createProductA();
-	Product *fp2 = f1->createProductB();
+    IphoneFactory iphone;
+    XiaoMiFactory xiaomi;
+    HuaweiFactory huawei;
 
-	fp1->Operation();
-	fp2->Operation();
-	cout << endl;
+    Cellphone *phone = maker.create(iphone);
+    phone->PrintCellphoneInfo();
+    cout << endl;
 
-	Product *fp3 = f2->createProductA();
-	Product *fp4 = f2->createProductB();
-	fp3->Operation();
-	fp4->Operation();
-	
-	return 0;
+    phone = maker.create(xiaomi);
+    phone->PrintCellphoneInfo();
+    cout << endl;
+    
+    phone = maker.create(huawei);
+    phone->PrintCellphoneInfo();
+
+    return 0;
 }
