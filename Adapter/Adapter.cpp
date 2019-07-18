@@ -45,7 +45,7 @@ Adapter::~Adapter()
 void Adapter::Request()
 {
 	cout << "Adapter::Request()" << endl;
-	this->SpecificRequest();
+	this->SpecificRequest();	//调用已有接口
 	cout << "------------------" << endl;
 }
 
@@ -54,9 +54,8 @@ Adapter1::Adapter1():_pAdaptee(new Adaptee)
 
 }
 
-Adapter1::Adapter1(Adaptee* adaptee)
+Adapter1::Adapter1(Adaptee* adaptee):_pAdaptee(adaptee)
 {
-	_pAdaptee = adaptee;
 }
 
 Adapter1::~Adapter1()
